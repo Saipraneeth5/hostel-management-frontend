@@ -1,0 +1,213 @@
+/* ── Card ─────────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── StatCard ─────────────────────────────────────────────────────────────── */
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+  animation: fadeUp .3s ease both;
+}
+.stat-icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.stat-card--amber .stat-icon { background: var(--amber-lt); color: var(--amber-dk); }
+.stat-card--teal  .stat-icon { background: var(--teal-lt);  color: var(--teal-dk);  }
+.stat-card--rose  .stat-icon { background: var(--rose-lt);  color: var(--rose);     }
+.stat-card--blue  .stat-icon { background: var(--blue-lt);  color: var(--blue);     }
+.stat-card--green .stat-icon { background: var(--green-lt); color: var(--green);    }
+
+.stat-body { display: flex; flex-direction: column; }
+.stat-value { font-family: var(--font-display); font-size: 1.75rem; line-height: 1; }
+.stat-label { font-size: .8rem; color: var(--ink-mute); margin-top: 2px; }
+.stat-trend { font-size: .75rem; color: var(--green); margin-top: 4px; }
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 6px;
+  border: none; border-radius: var(--radius-sm);
+  font-family: var(--font-body); font-weight: 500;
+  cursor: pointer; transition: all .15s; white-space: nowrap;
+}
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+.btn--primary   { background: var(--ink);   color: #fff; }
+.btn--primary:hover:not(:disabled)   { background: var(--ink-soft); }
+.btn--amber     { background: var(--amber); color: var(--ink); }
+.btn--amber:hover:not(:disabled)     { background: var(--amber-dk); color: #fff; }
+.btn--outline   { background: transparent; border: 1px solid var(--border-strong); color: var(--ink); }
+.btn--outline:hover:not(:disabled)   { border-color: var(--ink); }
+.btn--ghost     { background: transparent; color: var(--ink-soft); }
+.btn--ghost:hover:not(:disabled)     { background: var(--surface); }
+.btn--danger    { background: var(--rose-lt); color: var(--rose); border: 1px solid rgba(225,29,72,.2); }
+.btn--danger:hover:not(:disabled)    { background: var(--rose); color: #fff; }
+.btn--success   { background: var(--green-lt); color: var(--green); }
+.btn--success:hover:not(:disabled)   { background: var(--green); color: #fff; }
+
+.btn--sm { font-size: .8rem; padding: 5px 12px; height: 30px; }
+.btn--md { font-size: .875rem; padding: 7px 16px; height: 36px; }
+.btn--lg { font-size: 1rem; padding: 10px 22px; height: 44px; }
+
+.btn--loading { pointer-events: none; }
+.btn-spinner {
+  width: 14px; height: 14px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin .6s linear infinite;
+  display: inline-block;
+}
+
+/* ── Badge ────────────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex; align-items: center;
+  padding: 2px 9px;
+  border-radius: 99px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+.badge--gray    { background: #f1f0ed; color: var(--ink-soft); }
+.badge--amber   { background: var(--amber-lt); color: var(--amber-dk); }
+.badge--green   { background: var(--green-lt); color: var(--green); }
+.badge--rose    { background: var(--rose-lt);  color: var(--rose); }
+.badge--blue    { background: var(--blue-lt);  color: var(--blue); }
+.badge--teal    { background: var(--teal-lt);  color: var(--teal-dk); }
+
+/* ── Fields ───────────────────────────────────────────────────────────────── */
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field-label { font-size: .82rem; font-weight: 500; color: var(--ink-soft); }
+.field-input {
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: .9rem;
+  color: var(--ink);
+  background: var(--card);
+  transition: border .15s, box-shadow .15s;
+  outline: none;
+  width: 100%;
+}
+.field-input:focus { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(232,160,32,.15); }
+.field-input--error { border-color: var(--rose); }
+.field-textarea { height: auto; padding: 9px 12px; resize: vertical; min-height: 80px; }
+.field-error { font-size: .78rem; color: var(--rose); }
+
+/* ── Modal ────────────────────────────────────────────────────────────────── */
+.modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(15,17,23,.45);
+  z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  animation: fadeUp .2s ease;
+}
+.modal {
+  background: var(--card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal--sm { max-width: 400px; }
+.modal--md { max-width: 560px; }
+.modal--lg { max-width: 720px; }
+
+.modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 24px 0;
+  position: sticky; top: 0; background: var(--card);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.modal-title { font-family: var(--font-display); font-size: 1.2rem; }
+.modal-close {
+  background: none; border: none; font-size: 16px; cursor: pointer;
+  color: var(--ink-mute); width: 30px; height: 30px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-close:hover { background: var(--surface); color: var(--ink); }
+.modal-body { padding: 20px 24px 24px; }
+
+/* ── Table ────────────────────────────────────────────────────────────────── */
+.table-wrap { overflow-x: auto; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+.table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+.table th {
+  background: var(--surface);
+  padding: 10px 14px;
+  text-align: left;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink);
+  vertical-align: middle;
+}
+.table tr:last-child td { border-bottom: none; }
+.table tbody tr:hover { background: rgba(232,160,32,.04); }
+.table-empty { text-align: center; color: var(--ink-mute); padding: 40px !important; }
+
+/* ── Page header ──────────────────────────────────────────────────────────── */
+.page-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 24px; gap: 16px; flex-wrap: wrap;
+}
+.page-title { font-size: 1.75rem; color: var(--ink); }
+.page-subtitle { font-size: .875rem; color: var(--ink-mute); margin-top: 3px; }
+.page-action { flex-shrink: 0; }
+
+/* ── Spinner ──────────────────────────────────────────────────────────────── */
+.spinner {
+  display: inline-block;
+  border: 2px solid var(--border);
+  border-top-color: var(--amber);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+.spinner--sm { width: 16px; height: 16px; }
+.spinner--md { width: 28px; height: 28px; }
+.spinner--lg { width: 44px; height: 44px; border-width: 3px; }
+
+/* ── Empty state ──────────────────────────────────────────────────────────── */
+.empty-state {
+  text-align: center; padding: 52px 20px; color: var(--ink-mute);
+}
+.empty-icon { font-size: 36px; display: block; margin-bottom: 10px; }
+.empty-msg  { font-size: .9rem; }
+
+/* ── Form grid ────────────────────────────────────────────────────────────── */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-grid .full { grid-column: 1 / -1; }
+.form-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+
+@media (max-width: 600px) {
+  .form-grid { grid-template-columns: 1fr; }
+}

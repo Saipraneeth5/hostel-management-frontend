@@ -1,0 +1,41 @@
+.student-welcome { margin-bottom: 24px; }
+.student-welcome h1 { font-size: 1.75rem; margin-bottom: 4px; }
+.student-welcome h1 em { color: var(--amber-dk); font-style: italic; }
+.student-welcome p { color: var(--ink-mute); font-size: .9rem; }
+
+.student-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.profile-rows { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.profile-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.profile-row:last-child { border-bottom: none; }
+.profile-row-label { font-size: .8rem; color: var(--ink-mute); font-weight: 500; }
+.profile-row-value { font-size: .875rem; color: var(--ink); font-weight: 500; text-align: right; }
+
+.recent-list { display: flex; flex-direction: column; gap: 2px; }
+.recent-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+  gap: 12px;
+}
+.recent-item:last-child { border-bottom: none; }
+.recent-label { display: block; font-size: .875rem; font-weight: 500; }
+.recent-sub { display: block; font-size: .75rem; color: var(--ink-mute); margin-top: 1px; }
+.recent-amount { display: block; font-size: .875rem; font-weight: 600; }
+.recent-status {
+  display: block; font-size: .7rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .04em; margin-top: 2px;
+}
+.recent-status--pending, .recent-status--in_progress { color: var(--amber-dk); }
+.recent-status--paid, .recent-status--resolved { color: var(--green); }
+.recent-status--overdue, .recent-status--rejected { color: var(--rose); }
+
+@media (max-width: 1024px) {
+  .student-cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .student-cards { grid-template-columns: 1fr; }
+}
