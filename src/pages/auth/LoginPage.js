@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
 import './Auth.css';
+
+const DEMO_CREDENTIALS = [
+  { role: 'Admin',   username: 'admin',  password: 'admin123' },
+  { role: 'Warden',  username: 'warden', password: 'warden123' },
+  { role: 'Student', username: 'student', password: 'student123' },
+];
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -24,6 +30,10 @@ export default function LoginPage() {
     }
   };
 
+  const fillCredentials = (username, password) => {
+    setForm({ username, password });
+  };
+
   return (
     <div className="auth-page">
       <div className="auth-left">
@@ -35,6 +45,22 @@ export default function LoginPage() {
           <h1>Manage your hostel,<br /><em>effortlessly.</em></h1>
           <p>Rooms, complaints, payments, and mess — all in one place.</p>
         </div>
+
+        <div className="auth-demo">
+          <p className="auth-demo-title">Demo Credentials</p>
+          {DEMO_CREDENTIALS.map(({ role, username, password }) => (
+            <button
+              key={role}
+              type="button"
+              className="auth-demo-btn"
+              onClick={() => fillCredentials(username, password)}
+            >
+              <span className="auth-demo-role">{role}</span>
+              <span className="auth-demo-user">{username} / {password}</span>
+            </button>
+          ))}
+        </div>
+
         <div className="auth-dots">
           <span /><span /><span />
         </div>
@@ -46,7 +72,6 @@ export default function LoginPage() {
             <h2>Sign in</h2>
             <p>Enter your credentials to continue</p>
           </div>
-
           <div className="auth-fields">
             <div className="auth-field">
               <label>Username</label>
@@ -70,15 +95,9 @@ export default function LoginPage() {
               />
             </div>
           </div>
-
           <button type="submit" className="auth-submit" disabled={loading}>
             {loading ? <span className="auth-spinner" /> : 'Sign in →'}
           </button>
-
-          <p className="auth-switch">
-            Don't have an account?{' '}
-            <Link to="/register">Register here</Link>
-          </p>
         </form>
       </div>
     </div>

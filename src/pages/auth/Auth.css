@@ -209,3 +209,50 @@
   .auth-right { padding: 32px 20px; }
   .auth-field-row { grid-template-columns: 1fr; }
 }
+
+
+/* Demo Credentials */
+.auth-demo {
+  margin-top: 2rem;
+}
+
+.auth-demo-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.6rem;
+}
+
+.auth-demo-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #fff;
+}
+
+.auth-demo-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--amber);
+}
+
+.auth-demo-role {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--amber);
+}
+
+.auth-demo-user {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: monospace;
+}
